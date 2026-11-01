@@ -14,4 +14,4 @@ First public release.
 - **Any subject**: profiles for software, writing, plans, decisions, data, prompts, concepts, personal plans, creative work and high-stakes professional domains.
 - **Release contract**: invoking the skill never authorizes sending, publishing, deploying or purchasing. The run itself uses your model allowance, and it says how much it will start.
 - **Packaging**: Agent Skills format, Claude Code plugin and marketplace, a stdlib validator, and evals.
-- **Evals at release**: 4 of 4 cases passed, 2 runs per arm. They check behavior and not review quality, and the no-send grader also passed in the baseline arm, without the skill. Review quality against a single reviewer has not been measured.
+- **Evals at release**: 4 of 4 cases passed, 2 runs per arm. They check behavior and not review quality, and the graders for not sending, asking the owner and leaving the original untouched also passed in the baseline arm, without the skill. Review quality against a single reviewer has not been measured.

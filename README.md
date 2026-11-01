@@ -23,7 +23,7 @@ Nem tudo saiu provado: dois dos sete achados graves ficaram só como coerentes e
 
 ### O racional em cinco linhas
 
-- A IA responde sem mostrar o caminho, e personagens diferentes pensam parecido → **os revisores diferem no método e apontam a evidência** → você confere em vez de acreditar.
+- A IA responde sem mostrar o caminho, e dar a ela papéis como "o advogado" ou "o cético" muda pouco o raciocínio → **os revisores diferem no método e apontam a evidência** → você confere em vez de acreditar.
 - Agentes que leem o trabalho dos outros convergem → **cada um trabalha sozinho** → um não arrasta o outro.
 - Quem chegou a uma conclusão não é bom juiz dela → **um agente que não viu a discussão confere os bloqueadores, os problemas que impediriam o objetivo** → a conferência não herda o raciocínio de quem concluiu.
 - Em um processo longo, rodadas sem pausa decidem por você → **você decide a cada rodada, e nenhuma mensagem sai e nada é publicado sem combinar antes** → o veto continua seu.
@@ -40,9 +40,14 @@ Nem tudo saiu provado: dois dos sete achados graves ficaram só como coerentes e
 
 Na dúvida, comece pela Revisão. É mais barata e tem instrução de não mexer no original.
 
-**Não use para** perguntas factuais rápidas, ajustes triviais ou qualquer coisa em que o teste real mais barato possa simplesmente ser feito agora.
+**Não use para** perguntas factuais rápidas, ajustes triviais ou qualquer coisa que um teste barato resolva agora.
 
-> **Antes de instalar:** as duas Revisões `standard` medidas custaram US$ 7 e mais de US$ 18, pagando por uso. Não é faixa nem teto: material maior, debate e `deep` custam mais, e `deep` e um Ciclo inteiro nunca foram medidos. Em uma assinatura, sai da franquia do plano, e não medimos quanto. Os dois modos executam código e buscam na web sem pedir licença própria: se este computador tem acesso a contas ou bancos de dados reais, rode em outro lugar ou sem esse acesso. Em `deep`, o material pode ir também a outro fornecedor de IA. O resultado não substitui um profissional. [Custo e limites](#custo-e-limites).
+> **Antes de instalar** ([detalhes](#custo-e-limites)):
+>
+> - **Custo.** As duas Revisões medidas no nível padrão (`standard`) custaram US$ 7 e mais de US$ 18, pagando por uso. Não é faixa nem teto: material maior custa mais, e o nível mais pesado (`deep`) e um Ciclo inteiro nunca foram medidos. Em uma assinatura, sai da franquia do plano.
+> - **O que ela faz.** Executa código e busca na web sem pedir licença própria. Em `deep`, que ela pode escolher sozinha em algo difícil de desfazer, o material pode ir também a outra IA que esteja instalada.
+> - **Se você administra sistemas neste computador,** como servidores, contas de nuvem ou bancos de dados, rode em outro ou sem esses acessos.
+> - **O resultado** não substitui um profissional.
 
 ## Comece aqui
 
@@ -69,7 +74,7 @@ Na dúvida, comece pela Revisão. É mais barata e tem instrução de não mexer
 /sota:sota revise o plano em plano.md; o objetivo é pagar os livros da biblioteca
 ```
 
-**5. Espere e leia.** Ela avisa em uma linha quantos agentes vai iniciar e começa sem esperar resposta, porque você a chamou pelo nome. Conte com vários minutos: medimos cerca de 7 em uma Revisão `lite` e 16 no início de um Ciclo, e não cronometramos uma `standard`. Se o Claude Code pedir permissão para buscar na web ou rodar um comando, leia o pedido: recusar pode deixar um revisor sem concluir, e o relatório avisa. No fim, vêm o veredito, o que mudar e a versão melhorada, inteira se o material for pequeno ou como lista de alterações se for grande.
+**5. Espere e leia.** Ela avisa em uma linha quantos agentes vai iniciar e começa sem esperar resposta, porque você a chamou pelo nome. Conte com vários minutos: medimos cerca de 7 em uma Revisão `lite` e 16 no início de um Ciclo, e não cronometramos uma `standard`. Se o Claude Code pedir permissão para buscar na web ou rodar um comando, leia o pedido: recusar pode deixar um revisor sem concluir, e o protocolo manda o relatório dizer isso. No terminal, Esc interrompe. No fim, vêm o veredito, o que mudar e a versão melhorada, inteira se o material for pequeno ou como lista de alterações se for grande.
 
 Outros pedidos:
 
@@ -82,7 +87,7 @@ Outros pedidos:
 /sota:sota continue pagina-de-cadastro
 ```
 
-- **Nível.** O padrão é `standard`, e `deep` usa mais agentes e custa mais. `lite` sai mais barato porque um só agente faz as cinco leituras, sem revisores separados nem debate; no máximo, um agente novo confere a versão melhorada. Serve para coisa pequena e reversível, não para decisão difícil de desfazer nem para o que a mesma sessão acabou de produzir. O Ciclo nunca usa `lite`.
+- **Nível.** O padrão é `standard`, e `deep` usa mais agentes e custa mais. Em algo difícil de desfazer ou de erro caro, ela pode escolher `deep` sozinha, sem esperar resposta: se quiser evitar, diga no pedido qual nível quer. `lite` sai mais barato porque um só agente faz as cinco leituras, sem revisores separados nem debate; no máximo, um agente novo confere a versão melhorada. Serve para coisa pequena e reversível, não para decisão difícil de desfazer nem para o que a mesma sessão acabou de produzir. O Ciclo nunca usa `lite`.
 - **Ciclo.** Primeiro, ela propõe um critério e um contrato do que pode lançar, e espera a sua aprovação. `continue` retoma pelo nome que ela informou no início. "Só no papel" significa revisar e reescrever o documento sem colocar nada em uso, e costuma precisar de mais rodadas.
 - **Linguagem natural.** Dá para pedir "faça um red team disso". Nesse caso, ela informa a opção mais barata e espera o seu sim. Se ela não anunciar o que vai iniciar, não foi acionada: use o comando.
 - **Idioma.** O relatório vem no idioma do seu pedido, como neste [exemplo em português](examples/revisao-lite-biblioteca.md).
@@ -198,7 +203,7 @@ Se a promessa é mostrar a evidência, ela vale aqui também.
 
 - **Seu material vai para o modelo de IA,** como em qualquer uso do Claude Code. Em `deep`, ou sem subagentes, ela pode usar a CLI de outro fornecedor que esteja instalada, como Codex ou Gemini, e o material vai também para ele. A skill só pede o seu sim se considerar o material pessoal, de saúde, jurídico, financeiro, de cliente ou secreto. Se isso importa, diga no pedido para não usar outro fornecedor.
 - **Busca na web.** Os revisores buscam perguntas gerais, com instrução para não incluir nomes nem trechos do material.
-- **Executa código.** O Verificador experimenta em uma cópia, com instrução de não tocar em produção nem em contas reais. São instruções, não barreiras testadas: se este computador tem acesso a contas ou bancos de dados reais, rode em outro lugar ou sem esse acesso.
+- **Executa código.** O Verificador experimenta em uma cópia, com instrução de não tocar em produção nem em contas reais. São instruções, não barreiras testadas: se neste computador há chaves de acesso, senhas em arquivo ou ferramentas ligadas a sistemas reais, rode em outro ou sem esse acesso.
 - **Cria arquivos.** Pode criar arquivos novos, como o relatório. No Ciclo, versiona cada rodada e mantém um registro em `.sota/<nome>/LEDGER.md` que copia suas palavras ao pé da letra. Se você publica a pasta, deixe esse arquivo de fora.
 
 A skill não pede licença própria para isso, mas o Claude Code pode pedir, conforme a sua configuração.
@@ -214,7 +219,7 @@ Uma Revisão `standard` inicia 5 agentes, até 10 a mais se houver o que disputa
 | Início de Ciclo em uma mensagem curta, até a primeira pausa, sem nenhum conserto | US$ 7,25 |
 | Revisão `standard` deste repositório | US$ 18,13, provavelmente subestimado: exclui a montagem do relatório, usou um modelo mais barato no debate, e não sabemos se conta os agentes que ela inicia |
 
-São quatro execuções, não uma média, e nem `deep` nem um Ciclo inteiro foram medidos. Nada na skill limita o gasto. Em uma assinatura, tudo isso consome a franquia do plano, e não medimos quanto. Se o limite chegar no meio, ela tenta aquele revisor mais uma vez; se falhar de novo, o relatório diz qual faltou e limita a confiança a média.
+São quatro execuções, não uma média, e nem `deep` nem um Ciclo inteiro foram medidos. A skill não tem teto em dinheiro. Em uma assinatura, tudo isso consome a franquia do plano, e não medimos quanto. Se o limite chegar no meio, ela tenta aquele revisor mais uma vez; se falhar de novo, o relatório diz qual faltou e limita a confiança a média. Se o limite parar a sessão inteira, pode não haver relatório; não testamos esse caso.
 
 ### O que ainda não se sabe
 
@@ -222,7 +227,7 @@ São quatro execuções, não uma média, e nem `deep` nem um Ciclo inteiro fora
 - **Um relatório confiante ainda é opinião de IA.** Abra a evidência dos achados que vão mudar sua decisão. Em direito, medicina, finanças ou segurança, use o resultado para preparar a conversa com um profissional, sem substituí-la.
 - **Os revisores normalmente são a mesma IA**, o mesmo *modelo*, e podem errar juntos. Por isso, concordar aumenta a prioridade de conferir, não a certeza.
 - **Nem sempre converge.** Três ciclos anteriores, ainda na versão que originou este protocolo, tiveram `9 → 4 → 5 → 2`, `9 → 7 → 7 → 7` e `13 → 15 → 14` problemas graves por rodada. Nenhum chegou a zero. Segundo o relato do autor, sem registro público, cada um parou por decisão, quando os achados deixaram de valer outra rodada.
-- **Os testes do repositório só checam se ela se comporta como combinado,** sem medir a qualidade da revisão. O de não enviar nada sem autorização passa até sem a skill, então não prova que é ela quem impede o envio.
+- **Os testes do repositório só checam se ela se comporta como combinado,** sem medir a qualidade da revisão. Os de não enviar, de parar para pedir aprovação e de não tocar no original passam até sem a skill, então não provam que é ela quem garante isso.
 - **Só foi testada no Claude Code**, e nenhuma pessoa de fora percorreu a instalação e uma revisão completa.
 
 Quer tirar a prova sem confiar nesta página? Rode uma Revisão em algo cujo problema você já conhece, sem contar qual é, e veja se ela acha.

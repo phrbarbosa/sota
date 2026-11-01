@@ -23,7 +23,7 @@ Not everything came out proven: two of the seven serious findings stayed as cohe
 
 ### The rationale in five lines
 
-- AI doesn't show its work, and different characters think alike → **reviewers differ by method and point to their evidence** → you check instead of believing.
+- AI doesn't show its work, and giving it roles like "the lawyer" or "the skeptic" changes little in its reasoning → **reviewers differ by method and point to their evidence** → you check instead of believing.
 - Agents that read each other's work converge → **each one works alone** → one does not drag the others along.
 - Whoever reached a conclusion is a poor judge of it → **an agent that did not see the discussion checks the blockers, the problems that would defeat the objective** → the check does not inherit the reasoning of whoever concluded.
 - In a long process, rounds with no pause decide for you → **you decide at every round, and no message goes out and nothing is published unless agreed first** → the veto stays yours.
@@ -42,7 +42,12 @@ When in doubt, start with a Review. It costs less and is instructed not to touch
 
 **Don't use it for** quick factual questions, trivial edits, or anything a cheap test could settle right now.
 
-> **Before installing:** the two `standard` Reviews we measured cost $7 and over $18, paying per use. That is not a range or a cap: longer material, debate and `deep` cost more, and neither `deep` nor a full Loop has been measured. On a subscription, it draws on your plan's allowance, and we have not measured how much. Both modes run code and search the web without asking on their own: if this computer has access to real accounts or databases, run it elsewhere or without that access. In `deep`, your material may also go to another AI vendor. The result does not replace a professional. [Cost and limits](#cost-and-limits).
+> **Before installing** ([details](#cost-and-limits)):
+>
+> - **Cost.** The two Reviews we measured at the default level (`standard`) cost $7 and over $18, paying per use. That is not a range or a cap: longer material costs more, and neither the heaviest level (`deep`) nor a full Loop has been measured. On a subscription, it draws on your plan's allowance.
+> - **What it does.** It runs code and searches the web without asking on its own. In `deep`, which it may pick by itself for something hard to undo, your material may also go to another installed AI.
+> - **If you administer systems on this computer,** such as servers, cloud accounts or databases, run it on another one or without that access.
+> - **The result** does not replace a professional.
 
 ## Start here
 
@@ -69,7 +74,7 @@ When in doubt, start with a Review. It costs less and is instructed not to touch
 /sota:sota review the plan in plan.md; the objective is to pay for the library's books
 ```
 
-**5. Wait and read.** It says in one line how many agents it will start and begins without waiting for an answer, because you called it by name. Expect several minutes: we measured about 7 for a `lite` Review and 16 for the start of a Loop, and have not timed a `standard` one. If Claude Code asks permission to search the web or run a command, read the request: refusing can leave a reviewer unfinished, and the report says so. At the end come the verdict, what to change and the improved version, in full if the material is small or as a list of changes if it is large.
+**5. Wait and read.** It says in one line how many agents it will start and begins without waiting for an answer, because you called it by name. Expect several minutes: we measured about 7 for a `lite` Review and 16 for the start of a Loop, and have not timed a `standard` one. If Claude Code asks permission to search the web or run a command, read the request: refusing can leave a reviewer unfinished, and the protocol tells the report to say so. In the terminal, Esc interrupts. At the end come the verdict, what to change and the improved version, in full if the material is small or as a list of changes if it is large.
 
 Other requests:
 
@@ -82,7 +87,7 @@ Other requests:
 /sota:sota continue signup-page
 ```
 
-- **Level.** The default is `standard`, and `deep` uses more agents and costs more. `lite` is cheaper because one agent does all five readings, with no separate reviewers and no debate; at most, one fresh agent checks the improved version. It suits something small and reversible, not a decision that is hard to undo or anything the same session just produced. The Loop never uses `lite`.
+- **Level.** The default is `standard`, and `deep` uses more agents and costs more. For something hard to undo or with a costly error, it may pick `deep` by itself, without waiting for an answer: to avoid that, say in your request which level you want. `lite` is cheaper because one agent does all five readings, with no separate reviewers and no debate; at most, one fresh agent checks the improved version. It suits something small and reversible, not a decision that is hard to undo or anything the same session just produced. The Loop never uses `lite`.
 - **Loop.** First it proposes a criterion and a contract for what it may release, and waits for your approval. `continue` resumes by the name it gave you at the start. "Paper only" means reviewing and rewriting the document without putting anything into use, and it tends to need more rounds.
 - **Plain language.** You can ask "red team this". In that case it states the cheaper option and waits for your yes. If it does not announce what it will start, it did not fire: use the command.
 - **Language.** The report comes back in the language of your request, as in this [example in Portuguese](examples/revisao-lite-biblioteca.md).
@@ -198,7 +203,7 @@ If the promise is to show the evidence, it applies here too.
 
 - **Your material goes to the AI model,** as in any use of Claude Code. In `deep`, or without subagents, it may use another vendor's installed CLI, such as Codex or Gemini, and the material goes to that vendor as well. The skill asks for your yes only if it considers the material personal, health, legal, financial, client or secret. If this matters to you, say in your request not to use another vendor.
 - **Searches the web.** Reviewers search general questions, under instruction to leave out names and passages from the material.
-- **Runs code.** The Verifier experiments on a copy, under instruction not to touch production or real accounts. These are instructions, not tested barriers: if this computer has access to real accounts or databases, run it elsewhere or without that access.
+- **Runs code.** The Verifier experiments on a copy, under instruction not to touch production or real accounts. These are instructions, not tested barriers: if this computer holds access keys, passwords in files or tools connected to real systems, run it on another one or without that access.
 - **Creates files.** It may create new files, such as the report. In a Loop, it versions each round and keeps a record at `.sota/<name>/LEDGER.md` that copies your words verbatim. If you publish the folder, leave that file out.
 
 The skill asks no permission of its own for this, but Claude Code may, depending on your settings.
@@ -214,7 +219,7 @@ A `standard` Review starts 5 agents, up to 10 more when there is something to co
 | Start of a Loop on a short message, up to the first pause, with no fix | $7.25 |
 | `standard` Review of this repository | $18.13, probably an undercount: it leaves out assembling the report, used a cheaper model for debate, and we don't know whether it counts the agents it starts |
 
-These are four runs and not an average, and neither `deep` nor a full Loop has been measured. Nothing in the skill caps spending. On a subscription, all of this draws on your plan's allowance, and we have not measured how much. If the limit hits midway, it retries that reviewer once; if that fails too, the report names the missing one and caps confidence at medium.
+These are four runs and not an average, and neither `deep` nor a full Loop has been measured. The skill has no money cap. On a subscription, all of this draws on your plan's allowance, and we have not measured how much. If the limit hits midway, it retries that reviewer once; if that fails too, the report names the missing one and caps confidence at medium. If the limit stops the whole session, there may be no report; we have not tested that case.
 
 ### What is still unknown
 
@@ -222,7 +227,7 @@ These are four runs and not an average, and neither `deep` nor a full Loop has b
 - **A confident report is still an AI's opinion.** Open the evidence for the findings that will change your decision. In law, medicine, finance or safety, use the result to prepare the conversation with a professional, not to replace it.
 - **Reviewers are normally the same AI**, the same *model*, and can be wrong together. So agreement raises the priority of checking, not certainty.
 - **It does not always converge.** Three earlier loops, on the version this protocol came from, went `9 → 4 → 5 → 2`, `9 → 7 → 7 → 7` and `13 → 15 → 14` in serious problems per round. None reached zero. By the author's account, with no public record, each stopped on judgment, once the findings stopped being worth another round.
-- **The repository's tests only check whether it follows its protocol,** not review quality. The one for not sending anything without authorization passes even without the skill, so it does not prove the skill is what prevents the send.
+- **The repository's tests only check whether it follows its protocol,** not review quality. The ones for not sending, stopping to ask for approval and leaving the original untouched pass even without the skill, so they do not prove the skill is what ensures this.
 - **It has only been tested on Claude Code**, and nobody from outside has gone through the install and a full review.
 
 Want proof without trusting this page? Run a Review on something whose problem you already know, without saying what it is, and see if it finds it.
