@@ -1,0 +1,17 @@
+{
+  "name": "phrbarbosa-sota",
+  "owner": {
+    "name": "Pedro Rosa",
+    "url": "https://github.com/phrbarbosa"
+  },
+  "plugins": [
+    {
+      "name": "sota",
+      "source": "./",
+      "description": "Bring anything to its state of the art: an evidence-driven review council, and a loop of review, fix, release and owner decision."
+    }
+  ],
+  "metadata": {
+    "description": "The sota skill: review and iterate anything toward its state of the art."
+  }
+}

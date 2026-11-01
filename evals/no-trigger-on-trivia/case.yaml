@@ -1,0 +1,12 @@
+schema_version: "1.1"
+name: no-trigger-on-trivia
+tags: [trigger]
+execution:
+  prompt: "What does HTTP status 418 mean? One sentence."
+  max_turns: 3
+  allowed_tools: [Skill]
+graders:
+  - name: answers
+    type: regex
+    pattern: "[Tt]eapot"
+  - {name: skill-not-used, type: tool_used, tool: Skill, input_match: 'sota', min: 0, max: 0, arm: both}

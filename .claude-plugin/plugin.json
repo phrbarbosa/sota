@@ -1,0 +1,10 @@
+{
+  "name": "sota",
+  "description": "Bring anything to its state of the art: an evidence-driven review council, and a loop of review, fix, release and owner decision.",
+  "version": "1.0.0",
+  "author": { "name": "Pedro Rosa", "url": "https://github.com/phrbarbosa" },
+  "homepage": "https://github.com/phrbarbosa/sota",
+  "repository": "https://github.com/phrbarbosa/sota",
+  "license": "MIT",
+  "keywords": ["review", "council", "red-team", "pre-mortem", "iteration", "evaluation"]
+}

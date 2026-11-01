@@ -1,0 +1,5 @@
+.DS_Store
+*.skill
+*.zip
+evals/results/
+__pycache__/

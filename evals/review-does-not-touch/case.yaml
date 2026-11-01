@@ -1,0 +1,28 @@
+schema_version: "1.1"
+name: review-does-not-touch
+tags: [review]
+context:
+  scaffold_script: fixture.sh
+execution:
+  prompt: >-
+    Use the sota skill in review mode, lite is fine because this is low stakes and not your own work:
+    is plan.md good enough? Do not ask me anything.
+  max_turns: 25
+  allowed_tools: [Read, Glob, Grep, Skill, Bash]
+graders:
+  - name: skill-fired
+    type: tool_used
+    tool: Skill
+    input_match: '"skill"\s*:\s*"(?:[\w-]+:)?sota"'
+  - name: gives-a-verdict
+    type: regex
+    pattern: '\b(?:NO-GO|NOT YET|GO WITH CHANGES|GO|NEEDS REWORK|SOUND WITH FIXES|SOUND)\b'
+  - name: report-has-the-required-parts
+    type: llm
+    criteria: >-
+      The final answer contains a verdict, must-change items that each cite evidence from plan.md, a curated
+      version or patch list, what would change the verdict, and a pre-mortem line. It notes that lite mode is weaker.
+  - name: original-untouched
+    type: regex
+    target: {source: file, path: plan.md}
+    pattern: '^# Bake sale for the school library\n\nGoal: raise \$5,000 in one Saturday so the library can buy new books\.\n\n1\. Ask parents to bake 50 cakes\.\n2\. Sell each cake for \$10 at the school gate from 9 to 11 am\.\n3\. Announce it in the newsletter the day before\.\n4\. Food safety is not a concern because everything is homemade\.\n$'
