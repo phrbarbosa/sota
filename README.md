@@ -4,7 +4,9 @@
 
 **A IA responde com convicção. Como saber em qual resposta confiar? O sota faz revisores de IA trabalharem separados, cada um com um método, mostra a evidência de cada achado, diz o quanto foi conferido e devolve uma versão melhorada.**
 
-Aceita o que estiver escrito ou construído: um plano, um texto, uma decisão, um código, uma tela.
+O nome vem de *state of the art*, estado da arte, e essa é a meta. Um conselho de revisores de IA examina o seu problema, cada um à sua maneira e sem ver o trabalho dos outros. Onde discordam, dois agentes novos debatem com evidência, e um presidente decide. Uma Revisão faz uma passada desse trabalho. O Ciclo a repete, corrigindo entre as rodadas e parando para você decidir, em busca da melhor solução que a evidência sustenta, até não aparecer nada grave novo ou você parar. No Ciclo, "estado da arte" é um critério escrito, que dá para conferir, e nem sempre se chega lá.
+
+O sota aceita o que estiver escrito ou construído: um plano, um texto, uma decisão, um código, uma tela.
 
 O sota é uma *skill*, um pacote de instruções que ensina um agente de IA a trabalhar de um jeito específico. Foi testada só no [Claude Code](https://code.claude.com/docs), o agente da Anthropic que trabalha com os arquivos do seu computador, e pede um plano pago do Claude ou uma chave de API. Em uma janela de chat, como a do ChatGPT, não foi testada: sem agentes separados, cairia em um modo mais fraco.
 
@@ -146,7 +148,9 @@ Voltando à dor: se o problema é não saber em qual opinião confiar, um reviso
 | Visão de fora | Busca como coisas parecidas se saíram | Outras vendas de bolo: de £ 300 a US$ 2.456, em amostra não representativa |
 | Pragmático | Percorre a experiência de cada pessoa afetada | Quem tem alergia não sabe o que há no bolo |
 
-Isso não garante achados diferentes. Aquela revisão teve um sexto revisor, extra, focado em fontes de segurança alimentar, e dele veio o achado exclusivo mais útil, sobre regras locais. Ainda assim, 6 dos 7 achados graves vieram de mais de um revisor, 4 deles de todos os seis, e o relatório conta os idênticos como uma voz só. O que muda é o tipo de evidência que cada um precisa trazer para você abrir. Se isso também traz achados novos em material difícil, não medimos.
+**Por que apostamos em métodos diferentes para um resultado mais rico.** Cada método aponta o revisor para um tipo de coisa que os outros não têm como foco. Quem refaz a conta acha o erro de soma. Quem imagina o fracasso acha o que o plano não previu. Quem percorre a experiência de cada pessoa acha quem foi esquecido. Quem busca casos parecidos traz o que já se sabe, e quem monta a melhor versão diz o que a correção não pode estragar. Com esse material, um presidente dá o veredito, a versão melhorada e o que manter. A pesquisa sobre grupos dá outra razão: eles tendem a [perder a informação que só um membro tem](skills/sota/references/evidence.md). Por isso, um achado de um só revisor é conferido, nunca descartado por ser único. Na revisão desta própria página, sem registro público, um leitor simulado travou na instalação, o Verificador abriu um estudo citado e mostrou que o que dizíamos dele estava errado, e o Red Team apontou que a história tratava um teste como caso real. Foi um caso só, e não sabemos se outro revisor acharia o mesmo. Tudo isso é a aposta do projeto, não um ganho medido.
+
+Isso não garante achados diferentes. A revisão dos bolos teve um sexto revisor, extra, focado em fontes de segurança alimentar, e dele veio o achado exclusivo mais útil, sobre regras locais. Ainda assim, 6 dos 7 achados graves vieram de mais de um revisor, 4 deles de todos os seis, e o relatório conta os idênticos como uma voz só. O que muda é o tipo de evidência que cada um precisa trazer para você abrir. Se isso também traz achados novos em material difícil, não medimos.
 
 A revisão segue cinco passos, cada um por causa de uma falha:
 
@@ -258,8 +262,6 @@ Os relatórios podem usar estes termos:
 | Contrato de release | O que "lançar" significa aqui, combinado por escrito no início |
 | Guarda (*guard*) | Checagem que se viu falhar antes do conserto e que fica para pegar a volta do defeito |
 | *Ledger* | O arquivo que guarda o estado do Ciclo entre rodadas |
-
-O nome vem de *state of the art*, estado da arte.
 
 ## Contribuir
 

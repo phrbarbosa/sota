@@ -4,7 +4,9 @@
 
 **AI answers confidently. How do you know which answer to trust? sota has AI reviewers work apart, each with its own method, shows the evidence for each finding, says how much was checked, and gives back an improved version.**
 
-It takes anything written or built: a plan, a text, a decision, code, a screen.
+The name comes from *state of the art*, and that is the goal. A council of AI reviewers examines your problem, each in its own way and without seeing the others' work. Where they disagree, two fresh agents debate with evidence and a Chair decides. A Review does one pass of this work. A Loop repeats it, fixing between rounds and pausing for you to decide, in pursuit of the best solution the evidence supports, until nothing new and serious turns up or you stop. In a Loop, "state of the art" is a written criterion you can check, and it is not always reached.
+
+sota takes anything written or built: a plan, a text, a decision, code, a screen.
 
 sota is a *skill*, a package of instructions that teaches an AI agent to work in a specific way. It has only been tested on [Claude Code](https://code.claude.com/docs), Anthropic's agent that works with the files on your computer, and it needs a paid Claude plan or an API key. In a chat window, such as ChatGPT's, it has not been tested: without separate agents, it would fall back to a weaker mode.
 
@@ -146,7 +148,9 @@ Back to the problem: if the issue is not knowing which opinion to trust, a revie
 | Outside View | Looks at how similar things went | Other cake sales raised between £300 and $2,456, in a sample that is not representative |
 | Pragmatist | Walks through it as each affected person | Someone with an allergy cannot learn what is in a cake |
 
-That does not guarantee different findings. That review had a sixth reviewer, an extra one focused on food-safety sources, and the most useful exclusive finding came from it, about local rules. Even so, 6 of the 7 serious findings came from more than one reviewer, 4 of them from all six, and the report counts the identical ones as one voice. What the methods change is the kind of evidence each reviewer has to put in front of you. Whether that also brings new findings on hard material, we have not measured.
+**Why we bet on different methods for a richer result.** Each method points its reviewer at a kind of thing the others do not focus on. Whoever recomputes the numbers finds the wrong sum. Whoever imagines the failure finds what the plan did not foresee. Whoever walks through each person's experience finds who was forgotten. Whoever looks up similar cases brings what is already known, and whoever builds the best version says what a fix must not break. From that material, a Chair gives the verdict, the improved version and what to keep. Research on groups adds another reason: they tend to [lose information only one member holds](skills/sota/references/evidence.md). So a finding from one reviewer alone is checked, never discarded for being unique. In the review of this very page, with no public record, a simulated reader got stuck on the install, the Verifier opened a cited study and showed we had misdescribed it, and the Red Team pointed out that the story treated a test as a real case. That is one case, and we do not know whether another reviewer would have found the same. All of this is the project's bet, not a measured gain.
+
+That does not guarantee different findings. The bake-sale review had a sixth reviewer, an extra one focused on food-safety sources, and the most useful exclusive finding came from it, about local rules. Even so, 6 of the 7 serious findings came from more than one reviewer, 4 of them from all six, and the report counts the identical ones as one voice. What the methods change is the kind of evidence each reviewer has to put in front of you. Whether that also brings new findings on hard material, we have not measured.
 
 The review follows five steps, each because of a failure:
 
@@ -258,8 +262,6 @@ Reports may use these terms:
 | Release contract | What "release" means here, agreed in writing at the start |
 | Guard | A check seen to fail before the fix, kept to catch the defect's return |
 | Ledger | The file holding the Loop's state between rounds |
-
-The name comes from *state of the art*.
 
 ## Contributing
 
