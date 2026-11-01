@@ -6,6 +6,7 @@ The Agent Skills spec itself is checked by skills-ref in CI. Lists every error, 
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -93,12 +94,54 @@ def check_placeholders() -> None:
                 errors.append(f"{path.relative_to(ROOT)}: unresolved placeholder")
 
 
+def check_translations() -> None:
+    """The two READMEs must link to each other and carry the same sources, numbers, headings and table rows."""
+    pt = (ROOT / "README.md").read_text()
+    en = (ROOT / "README.en.md").read_text()
+    if "(README.en.md)" not in pt or "(README.md)" not in en:
+        errors.append("README.md and README.en.md must link to each other")
+    for label, pattern in (("headings", r"^#{2,3} "), ("table rows", r"^\|")):
+        count_pt = len(re.findall(pattern, pt, re.M))
+        count_en = len(re.findall(pattern, en, re.M))
+        if count_pt != count_en:
+            errors.append(f"READMEs differ in {label}: pt {count_pt}, en {count_en}")
+    arxiv_pt = set(re.findall(r"arxiv\.org/abs/[\d.]+", pt))
+    arxiv_en = set(re.findall(r"arxiv\.org/abs/[\d.]+", en))
+    if arxiv_pt != arxiv_en:
+        errors.append(f"READMEs cite different sources: {sorted(arxiv_pt ^ arxiv_en)}")
+    numbers_pt, numbers_en = readme_numbers(pt), readme_numbers(en)
+    if numbers_pt != numbers_en:
+        diff = (numbers_pt - numbers_en) + (numbers_en - numbers_pt)
+        errors.append(f"READMEs differ in numbers: {sorted(diff)}")
+
+
+def readme_numbers(text: str) -> Counter:
+    """Every number in prose, ignoring links and separators, so 7,24 and 7.24 compare equal."""
+    text = re.sub(r"\]\([^)]*\)", "]", text)
+    return Counter(re.sub(r"[.,]", "", n) for n in re.findall(r"\d[\d.,]*\d|\d", text))
+
+
+def check_anchors() -> None:
+    """Links inside a page must land on one of that page's own headings."""
+    for name in ("README.md", "README.en.md"):
+        text = (ROOT / name).read_text()
+        slugs = set()
+        for heading in re.findall(r"^#{1,6} (.+)$", text, re.M):
+            slug = re.sub(r"[^\w\- ]", "", heading.lower()).replace(" ", "-")
+            slugs.add(slug)
+        for anchor in re.findall(r"\]\(#([^)]+)\)", text):
+            if anchor not in slugs:
+                errors.append(f"{name}: anchor #{anchor} matches no heading")
+
+
 def main() -> int:
     fields = check_skill()
     check_references()
     check_markdown_links()
     check_manifests(fields)
     check_placeholders()
+    check_translations()
+    check_anchors()
     for error in errors:
         print(f"error: {error}")
     print(f"{'FAILED' if errors else 'OK'}: {len(errors)} error(s)")

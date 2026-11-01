@@ -1,6 +1,6 @@
 # Example: round 0 and the first pause of a paper-only loop
 
-Real output on the 1.0.0 protocol. The announcement and the club are invented test input. Measured cost: USD 7.25 at API prices on an Opus-class model. The run stopped at the pause, as a loop must, so no fix has been applied and nothing was sent. The clipped style of the pause message comes from an output setting on the author's machine and is not part of the skill. The files are otherwise unedited.
+Real output on the 1.0.0 protocol. The announcement and the club are invented test input. Measured cost: USD 7.25 at API prices on an Opus-class model, in about 16 minutes. The run stopped at the pause, as a loop must, so no fix has been applied and nothing was sent. The clipped style of the pause message comes from an output setting on the author's machine and is not part of the skill. The files are otherwise unedited.
 
 Prompt:
 

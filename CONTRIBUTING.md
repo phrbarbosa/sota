@@ -6,6 +6,7 @@ Issues and pull requests are welcome.
 - **A new kind of subject** goes in `references/profiles.md`, with a checklist in `references/lenses.md` if one is needed. If it needs a new step in `SKILL.md`, the design may be wrong, so open an issue first.
 - **A behavior bug** should come with an eval case under `evals/` that fails before the change.
 - **Keep `SKILL.md` short.** Detail belongs in `references/`, one level deep.
+- **The main README is in Portuguese, with `README.en.md` alongside it.** A change to either goes in both, in the same commit, above all a change to cost or limits. `scripts/validate.py` checks that they carry the same arXiv sources, numbers, heading count and table rows, not that their words match.
 
 Before opening a pull request:
 
