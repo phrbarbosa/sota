@@ -74,7 +74,7 @@ Na dúvida, comece pela Revisão. É mais barata e tem instrução de não mexer
 /sota:sota revise o plano em plano.md; o objetivo é pagar os livros da biblioteca
 ```
 
-**5. Espere e leia.** Ela avisa em uma linha quantos agentes vai iniciar e começa sem esperar resposta, porque você a chamou pelo nome. Conte com vários minutos: medimos cerca de 7 em uma Revisão `lite` e 16 no início de um Ciclo, e não cronometramos uma `standard`. Se o Claude Code pedir permissão para buscar na web ou rodar um comando, leia o pedido: recusar pode deixar um revisor sem concluir, e o protocolo manda o relatório dizer isso. No terminal, Esc interrompe. No fim, vêm o veredito, o que mudar e a versão melhorada, inteira se o material for pequeno ou como lista de alterações se for grande.
+**5. Espere e leia.** Ela avisa em uma linha quantos agentes vai iniciar e começa sem esperar resposta, porque você a chamou pelo nome. Conte com vários minutos: medimos cerca de 7 em uma Revisão `lite` e 16 no início de um Ciclo, e não cronometramos uma `standard`. Se o Claude Code pedir permissão para buscar na web ou rodar um comando, leia o pedido: recusar pode deixar um revisor sem concluir, e o protocolo manda o relatório dizer isso. Não testamos como interromper uma execução no meio, nem se isso para os revisores que já começaram. No fim, vêm o veredito, o que mudar e a versão melhorada, inteira se o material for pequeno ou como lista de alterações se for grande.
 
 Outros pedidos:
 

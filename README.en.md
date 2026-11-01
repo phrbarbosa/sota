@@ -74,7 +74,7 @@ When in doubt, start with a Review. It costs less and is instructed not to touch
 /sota:sota review the plan in plan.md; the objective is to pay for the library's books
 ```
 
-**5. Wait and read.** It says in one line how many agents it will start and begins without waiting for an answer, because you called it by name. Expect several minutes: we measured about 7 for a `lite` Review and 16 for the start of a Loop, and have not timed a `standard` one. If Claude Code asks permission to search the web or run a command, read the request: refusing can leave a reviewer unfinished, and the protocol tells the report to say so. In the terminal, Esc interrupts. At the end come the verdict, what to change and the improved version, in full if the material is small or as a list of changes if it is large.
+**5. Wait and read.** It says in one line how many agents it will start and begins without waiting for an answer, because you called it by name. Expect several minutes: we measured about 7 for a `lite` Review and 16 for the start of a Loop, and have not timed a `standard` one. If Claude Code asks permission to search the web or run a command, read the request: refusing can leave a reviewer unfinished, and the protocol tells the report to say so. We have not tested how to interrupt a run midway, or whether that stops reviewers already started. At the end come the verdict, what to change and the improved version, in full if the material is small or as a list of changes if it is large.
 
 Other requests:
 
